@@ -26,9 +26,21 @@ public class JdbcPreparedStatement
 		
 	}
 
-	private static void updateSal(Connection con) 
+	private static void updateSal(Connection con) throws SQLException 
 	{
-		String q1 = 
+		String q1 = "update emp set basicpay = basicpay + ? where empno = ?";
+		PreparedStatement pmt = con.prepareStatement(q1);
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the empcode and increment salary to update ");
+		int no = sc.nextInt();
+		float sal =sc.nextFloat();
+		
+		pmt.setFloat(1, sal);
+		pmt.setInt(2, no);
+		
+		int row = pmt.executeUpdate();
+		System.out.println("Record Updated " + row);
 		
 	}
 
