@@ -12,23 +12,38 @@ public class JdbcPreparedStatement
 	{
 		Connection con= CreateConnection();
 		Selectwithcondition(con);
-		selectAll(con);
+		//selectAll(con);
 		//deleteusingEmpcode(con);
-		updateSal(con);
-		selectAll(con);
+		//updateSal(con);
+		//selectAll(con);
 		insertemp(con);
 		selectAll(con);
 		
 	}
 
-	private static void insertemp(Connection con) {
-		// TODO Auto-generated method stub
+	private static void insertemp(Connection con) throws SQLException 
+	{
+		String q1 = "insert into emp(empcode, empname, basicpay) values(?, ?, ? ) ";
+		Scanner sc = new Scanner(System.in);
+		System.out.println(" Enter the employee code, employee name , employee salary ");
+		
+		int no = sc.nextInt();
+		String name = sc.next();
+		float sal = sc.nextFloat();
+		
+		PreparedStatement pmt = con.prepareStatement(q1);
+		pmt.setInt(1, no);
+		pmt.setString(2, name);
+		pmt.setFloat(3, sal);
+		
+		int row = pmt.executeUpdate();
+		System.out.println(row + "Record Inserted");
 		
 	}
 
 	private static void updateSal(Connection con) throws SQLException 
 	{
-		String q1 = "update emp set basicpay = basicpay + ? where empno = ?";
+		String q1 = "update emp set basicpay = basicpay + ? where empcode = ?";
 		PreparedStatement pmt = con.prepareStatement(q1);
 		
 		Scanner sc = new Scanner(System.in);
