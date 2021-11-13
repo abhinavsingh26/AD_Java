@@ -7,13 +7,13 @@ public class Employee
 	float sal;
 	String designation;
 	
-	Employee()
-	{
-		empno = 1004;
-		name = "uma";
-		sal = 7000;
-		designation = "admin";
-	}
+//	Employee()
+//	{
+//		empno = 1004;
+//		name = "uma";
+//		sal = 7000;
+//		designation = "admin";
+//	}
 	
 	public Employee(int empno, String name, float sal, String designation) 
 	{
@@ -68,7 +68,7 @@ class testEmployee
 		{
 			e[i].displayEmployee();
 		}
-
+		sc.close();
 	}
 
 }
