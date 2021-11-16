@@ -13,7 +13,7 @@ public class Client1
 	public static void main(String[] args) throws UnknownHostException, IOException 
 	{
 		// Connection
-		Socket s = new Socket("192.167.1.9", 887);
+		Socket s = new Socket("localhost",3887);
 		
 		//Read From User
 		
