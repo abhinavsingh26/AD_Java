@@ -7,12 +7,14 @@ public class HappyNum
     {
         int rem = 0; 
         int sum = 0;
+        int count = 0;
         
-        while (num > 0 )
+        while (num > 0 && count < 11 )
         {
             rem = num % 10;
             sum = sum + (rem * rem );
             num = num /10;
+            count++;
         }
         return sum;
     }
@@ -20,8 +22,7 @@ public class HappyNum
     public static void main(String[] args)
     {
         Scanner sc= new Scanner(System.in);
-        System.out.println("Enter non zero positive no. ");
-        
+        System.out.println("Enter non zero positive no. ");        
         int num = sc.nextInt();
         int result = num;
         while(result != 1 && result != 4)

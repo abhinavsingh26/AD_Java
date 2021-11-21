@@ -1,52 +1,35 @@
-import java.util.*;
+import java.util.Scanner;
+
 
 public class checkHappyNumber
 {
-	public static int checkHappy (int number)
-	{
-		
-		int rem = 0, sum = 0; 
-
-		// calculate the sum of squares of each digits
-		while(number > 0)
-		{
-			rem = number %10;
-			sum = sum+(rem*rem);
-			number = number/10;
-		}
-
-		return sum;
-	}
-
-	public static void main(String[] args)
-	{
-		// Take number from KeyBoard
-		Scanner sc = new Scanner (System.in);
-		System.out.print("Enter a non-zero Positive Number:");
-		int number1 = sc.nextInt( );
-		int number2 = sc.nextInt( );
-		//int  result = number;
-		int count=0;
-		
-		for(int x=number1;number1<=number2;x++) 
-		{
-			int result=x;
-			while (result != 1 && result != 4)
-			{
-				count++;
-				result = checkHappy(result);
-			}
-			
-			System.out.println("iterations"+count);
-			
-			if (result ==1)
-			{
-				System.out.print ("Happy Numbers are:"+x+",");
-			}
-			else
-			{
-				System.out.println (" It is not a Happy Number");
-			}
-		}
-	}
+    public static void main(String[] args)
+    {
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter non zero positive no. ");
+        //--------------------------------------------------------------------------------------
+        int num = sc.nextInt();
+        int rem = 0; 
+        int sum = 0;
+        int count = 0;
+      //----------------------------------------------------------------------------------------   
+        	do
+            {
+                rem = num % 10;
+                sum = sum + (rem * rem );
+                num = num /10;
+                count++;
+                sum = num;
+            }while (num >= 1 && count < 11 );
+        
+        
+        if(sum == 1)
+        {
+            System.out.println(num + " is a happy number. ");
+        }
+        else
+        {
+            System.out.println(num + " is NOT a happy number. ");
+        }
+    }
 }
